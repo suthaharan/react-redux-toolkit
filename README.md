@@ -69,3 +69,38 @@ update state  { numOfCakes: 8, numOfBiscuits: 20 }
 update state  { numOfCakes: 7, numOfBiscuits: 20 }
 
 ```
+
+### Quick intro to Spread operator
+```
+@ Using spread operator to update an object value
+const fruits = {a: "apple", b: "banana"};
+const newFruits = { ...fruits, o: 'orange'}
+console.log("New fruits: ", newFruits)
+console.log("Modified fruits: ", {...fruits, b: 'blueberry'})
+
+```
+
+### ReduxStore - restocking the store
+Here we will be dynamically modifying the quantity state store variable to handle order/restock scenarios
+```
+$ node index
+Initial store  { numOfCakes: 10, numOfBiscuits: 20 }
+update state  { numOfCakes: 9, numOfBiscuits: 20 }
+update state  { numOfCakes: 11, numOfBiscuits: 20 }
+update state  { numOfCakes: 10, numOfBiscuits: 20 }
+update state  { numOfCakes: 9, numOfBiscuits: 20 }
+```
+
+### Redux helper function
+Alternative way to bind actions ....
+```
+const bindActionCreators = redux.bindActionCreators
+
+...
+const actions = bindActionCreators({ orderCake, restockCake}, store.dispatch)
+
+actions.orderCake()
+actions.restockCake(3)
+
+
+```
