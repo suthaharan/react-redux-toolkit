@@ -51,3 +51,6 @@ $ node index (run the application)
   * 'type' property is typically defined as string constants
   * action creator is a function that returns the action
 
+### Implementing reducers
+* Specify how the app's state changes in response to actions sent to the store
+* (previousState, action) => newState
