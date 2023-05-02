@@ -54,3 +54,18 @@ $ node index (run the application)
 ### Implementing reducers
 * Specify how the app's state changes in response to actions sent to the store
 * (previousState, action) => newState
+
+### ReduxStore - bringing action and reducers together
+* Holds the application state
+* Allows access to the state via getState()
+* Allows state to be updated via dispatch(action)
+* Registers listeners via subscribe(listener)
+* Handles unregistering of listeners via the function returned by subscribe(listener)
+```
+$ node index
+Initial store  { numOfCakes: 10, numOfBiscuits: 20 }
+update state  { numOfCakes: 9, numOfBiscuits: 20 }
+update state  { numOfCakes: 8, numOfBiscuits: 20 }
+update state  { numOfCakes: 7, numOfBiscuits: 20 }
+
+```

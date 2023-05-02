@@ -32,7 +32,7 @@ const reducer = (state = initialState, action) => {
 
 // create a store
 const store = createStore(reducer);
-console.log("Initial store ", store);
+console.log("Initial store ", store.getState());
 
 // subscribe to the store
 const unsubscribe = store.subscribe(() => console.log("update state ", store.getState()));
