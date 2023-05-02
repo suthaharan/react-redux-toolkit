@@ -104,3 +104,17 @@ actions.restockCake(3)
 
 
 ```
+
+
+### Multiple reducers
+What if we have to state variables that we need to modify? How will we tackle such situation? You can create multiple reducers, but then you will need to combine them as create store can only have one reducer.
+
+```
+Initial store  { cake: { numOfCakes: 10 }, biscuit: { numOfBiscuits: 20 } }
+update state  { cake: { numOfCakes: 9 }, biscuit: { numOfBiscuits: 19 } }
+update state  { cake: { numOfCakes: 12 }, biscuit: { numOfBiscuits: 22 } }
+update state  { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 21 } }
+update state  { cake: { numOfCakes: 13 }, biscuit: { numOfBiscuits: 23 } }
+```
+
+
