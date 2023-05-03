@@ -313,3 +313,20 @@ Initial state  { cake: { numOfCakes: 10 }, biscuit: { numOfBiscuits: 15 } }
 * In store.js, attach the reducer to the store and in index dispatch the action
 * createAsyncThunk under the hood makes uses of the redux-thunk library
 * redux-thunk is applied as middleware to the store under the hood and everything else is abstracted. You can inspect the node_modules to see the libraries installed
+
+### Redux Toolkit with React as UI library
+#### Project setup
+* Our first step is to go to the root of the folder and create a new react project. Vite will be used in the setup of this project
+```
+$ npm create vite@latest react-rtk-demo
+>> Select react as the template
+$ cd react-rtk-demo
+$ yarn install
+
+Now bring in the folders app and features from the rtk-demo project and add it under /src folder. Then install axios and toolkit library
+
+$ yarn add axios @reduxjs/toolkit
+
+```
+* adfasf
+
