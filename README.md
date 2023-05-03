@@ -118,3 +118,16 @@ update state  { cake: { numOfCakes: 13 }, biscuit: { numOfBiscuits: 23 } }
 ```
 
 
+### Nested objects and updating states
+In this example, we will see how we go about updating the nested objects in redux and the points that we need to consider when the objects become complex.
+
+```
+Initial store  {
+  name: 'Kurinchi',
+  address: { street: '123 main street', city: 'abc city', country: 'US' }
+}
+updated state  {
+  name: 'Kurinchi',
+  address: { street: '345 Front Street', city: 'abc city', country: 'US' }
+}
+```
