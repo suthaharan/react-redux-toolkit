@@ -258,4 +258,41 @@ $ npm i @reduxjs/toolkit
 ------@biscuits
 ------@cake
 
+Initial state  { cake: { numOfCakes: 10 }, biscuit: { numOfBiscuits: 15 } }
+Update state { cake: { numOfCakes: 9 }, biscuit: { numOfBiscuits: 15 } }
+Update state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 15 } }
+Update state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 14 } }
+Update state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 13 } }
+Update state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 14 } }
+
+```
+
+### Redux logger with redux-toolkit
+```
+$ npm i redux-logger
+
+With the logger installed, make the necessary changes in store.js to include the logger library
+
+
+Initial state  { cake: { numOfCakes: 10 }, biscuit: { numOfBiscuits: 15 } }
+ action cake/ordered @ 23:41:56.557
+   prev state { cake: { numOfCakes: 10 }, biscuit: { numOfBiscuits: 15 } }
+   action     { type: 'cake/ordered', payload: undefined }
+   next state { cake: { numOfCakes: 9 }, biscuit: { numOfBiscuits: 15 } }
+ action cake/restocked @ 23:41:56.561
+   prev state { cake: { numOfCakes: 9 }, biscuit: { numOfBiscuits: 15 } }
+   action     { type: 'cake/restocked', payload: 2 }
+   next state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 15 } }
+ action biscuit/ordered @ 23:41:56.563
+   prev state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 15 } }
+   action     { type: 'biscuit/ordered', payload: undefined }
+   next state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 14 } }
+ action biscuit/ordered @ 23:41:56.565
+   prev state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 14 } }
+   action     { type: 'biscuit/ordered', payload: undefined }
+   next state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 13 } }
+ action biscuit/restocked @ 23:41:56.568
+   prev state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 13 } }
+   action     { type: 'biscuit/restocked', payload: 1 }
+   next state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 14 } }
 ```

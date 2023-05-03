@@ -5,7 +5,7 @@ const biscuitActions = require('./features/biscuit/biscuitSlice').biscuitActions
 console.log('Initial state ', store.getState())
 
 const unsubscribe = store.subscribe(() => {
-    console.log('Update state', store.getState())
+   // console.log('Update state', store.getState())
 })
 
 // create an action
