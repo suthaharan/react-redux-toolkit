@@ -228,3 +228,34 @@ $ node asyncActions.js
   error: ''
 }
 ```
+
+### Redux concerns and redux-toolkit library
+* Redux requires too much boiler plate code
+  * action
+  * action object
+  * action creator
+  * switch statement in a reducer
+* A lot of packages have to be installed to work with redux
+  * redux-thunk
+  * immer
+  * redux-devtools
+* There was a need to improve the dev experience for redux
+* Redux toolkit is the official opinionated batteries-included toolset for efficient Redux development
+  * Abstract over the setup process
+  * handle the most common usecases
+  * includes some useful utilities
+* Project setup
+```
+* Create a new folder rtk-demo and go inside the folder
+$ npm init --yes
+$ npm i @reduxjs/toolkit
+
+* Create the opinionated folder structure
+- rtk-demo
+----@app
+------+ store.js
+----@features
+------@biscuits
+------@cake
+
+```
