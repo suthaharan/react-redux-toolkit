@@ -245,6 +245,13 @@ $ node asyncActions.js
   * handle the most common usecases
   * includes some useful utilities
 * Project setup
+  * 01 - Initialize the STATE
+  * 02 - Create a FEATURE SLICE using feature slice function which generates the actions and reducers
+  * 03 - Peform DIRECT MUTATIONS on the state (with immer under the hood)
+  * 04 - Create a STORE and attach the REDUCER
+  * 05 - DISPATCH an action
+  * 06 - LISTEN to changes using store.subscribe() function
+  * 07 - INSPECT the state using store.getState()
 ```
 * Create a new folder rtk-demo and go inside the folder
 $ npm init --yes
@@ -296,3 +303,13 @@ Initial state  { cake: { numOfCakes: 10 }, biscuit: { numOfBiscuits: 15 } }
    action     { type: 'biscuit/restocked', payload: 1 }
    next state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 14 } }
 ```
+
+### ASYNC actions with Redux Toolkit
+* Will need axios library to call in external API's
+* We make use of createAsyncThunk function which accepts action type as first argument and callback as the second argument. Callback function will contain the async logic and will return a promise. createAsyncThunk will dispatch the promise lifecycle actions which we can listen to using extraReducers
+* Lifecycle includes pending (when request is made), fulfilled (when request succceed) and rejected (when there is error)
+* Within each reducer function we can perform the necessary state transition
+* Within the slice, export the reducer as the default export and fetchUsers function as the named export
+* In store.js, attach the reducer to the store and in index dispatch the action
+* createAsyncThunk under the hood makes uses of the redux-thunk library
+* redux-thunk is applied as middleware to the store under the hood and everything else is abstracted. You can inspect the node_modules to see the libraries installed
