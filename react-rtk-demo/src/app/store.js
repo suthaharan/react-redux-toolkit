@@ -4,9 +4,7 @@ import cakeReducer  from '../features/cake/cakeSlice'
 import biscuitReducer from '../features/biscuit/biscuitSlice'
 import userReducer from '../features/user/userSlice'
 
-import reduxLogger from 'redux-logger'
-
-const logger = reduxLogger.createLogger()
+import logger from 'redux-logger'
 
 // Create a STORE and attach the REDUCER
 const store = configureStore({

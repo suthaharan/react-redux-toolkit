@@ -326,6 +326,7 @@ $ yarn install
 Now bring in the folders app and features from the rtk-demo project and add it under /src folder. Then install axios and toolkit library
 
 $ yarn add axios @reduxjs/toolkit
+$ yarn add react-redux
 
 ```
 * adfasf
