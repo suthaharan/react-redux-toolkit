@@ -133,6 +133,98 @@ updated state  {
 ```
 
 We will use immer library to handle nested object changes elegantly. Immer simplifies handling immutable data structure and works very well with redux. 
+```
+$ npm install immer
+```
 
 
+### Middleware
+* It is a suggested way to extend Redux with custom functionality
+* Provides 3rd party extension point between dispatching an action, and the moment it reaches the reducer
+* Use middleware for logging, crash reporting, peforming asynchronous tasks etc. 
+* We will redux-logger library for this
+```
+$ npm install redux-logger
 
+@ Below is the output from middleware.js. Previous state, action and next state is registered and is displayed
+
+ action CAKE_ORDERED @ 22:11:39.589
+   prev state { cake: { numOfCakes: 10 }, biscuit: { numOfBiscuits: 20 } }
+   action     { type: 'CAKE_ORDERED', quantity: 1 }
+   next state { cake: { numOfCakes: 9 }, biscuit: { numOfBiscuits: 19 } }
+ action CAKE_RESTOCKED @ 22:11:39.592
+   prev state { cake: { numOfCakes: 9 }, biscuit: { numOfBiscuits: 19 } }
+   action     { type: 'CAKE_RESTOCKED', quantity: 3 }
+   next state { cake: { numOfCakes: 12 }, biscuit: { numOfBiscuits: 22 } }
+ action CAKE_ORDERED @ 22:11:39.594
+   prev state { cake: { numOfCakes: 12 }, biscuit: { numOfBiscuits: 22 } }
+   action     { type: 'CAKE_ORDERED', quantity: 1 }
+   next state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 21 } }
+ action CAKE_RESTOCKED @ 22:11:39.595
+   prev state { cake: { numOfCakes: 11 }, biscuit: { numOfBiscuits: 21 } }
+   action     { type: 'CAKE_RESTOCKED', quantity: 2 }
+   next state { cake: { numOfCakes: 13 }, biscuit: { numOfBiscuits: 23 } }
+
+
+```
+
+
+### Asynchronous actions
+* As soon as an action was dispatched, the state was immediately updated
+* If you dispatch the CAKE_ORDERED action, the numOfCakes was right away decremented by 1
+* Asynchronous Actions are API calls to fetch data from an end point and use that data in your application
+```
+@ STATE
+state = {
+    loading: true,
+    data: [],
+    error: ''
+}
+
+@ACTION
+FETCH_USERS_REQUESTED - Fetch list of users
+FETCH_USERS_SUCCEEDED - Fetched successfully
+FETCH_USERS_FAILED - Error when fetching the data
+
+@REDUCERS
+case: FETCH_USERS_REQUESTED
+    loading: true
+
+case: FETCH_USERS_REQUESTED
+    loading: false
+    users: data from API
+
+case: FETCH_USERS_REQUESTED
+    loading: false
+    error: error from API
+
+```
+
+* Async action creators
+  * axios - requests to an API endpoint
+  * redux-thunk - define async action creators, middleware
+
+```
+$ npm i axios
+$ npm i redux-thunk
+$ node asyncActions.js
+
+@output
+{ loading: true, users: [], error: '' }
+{
+  loading: false,
+  users: [
+    'Leanne Graham',
+    'Ervin Howell',
+    'Clementine Bauch',
+    'Patricia Lebsack',
+    'Chelsey Dietrich',
+    'Mrs. Dennis Schulist',
+    'Kurtis Weissnat',
+    'Nicholas Runolfsdottir V',
+    'Glenna Reichert',
+    'Clementina DuBuque'
+  ],
+  error: ''
+}
+```
