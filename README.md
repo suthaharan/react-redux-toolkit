@@ -131,3 +131,8 @@ updated state  {
   address: { street: '345 Front Street', city: 'abc city', country: 'US' }
 }
 ```
+
+We will use immer library to handle nested object changes elegantly. Immer simplifies handling immutable data structure and works very well with redux. 
+
+
+
