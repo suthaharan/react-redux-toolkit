@@ -14,7 +14,7 @@ const initialState = {
 export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
     return axios
         .get('https://jsonplaceholder.typicode.com/users')
-        .then((response) => response.data.map((user) => user.id))
+        .then((response) => response.data)
 })
 
 // Create a FEATURE SLICE using feature slice function which generates the actions and reducers

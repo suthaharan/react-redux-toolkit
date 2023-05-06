@@ -329,5 +329,10 @@ $ yarn add axios @reduxjs/toolkit
 $ yarn add react-redux
 
 ```
-* adfasf
+* Store only as much as is needed in the redux store. For others use the local component store to store the state. 
+
+#### Redux DevTools for development
+* Search for and install Redux DevTools in Google chrome store
+* Enables time travel debugging
+* Trigger an action if the clicks are buried inside the UI
 
